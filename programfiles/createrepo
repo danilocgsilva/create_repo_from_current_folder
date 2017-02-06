@@ -1,0 +1,23 @@
+#!/bin/bash
+
+basedir=$(dirname $0)
+
+source $basedir/createrepo_program/createrepo_util.sh
+
+#if [ -z $1 ]; then
+#	echo You need the first argument to be the php path.
+#	exit
+#fi
+
+#if [ -z $2 ]; then
+#    echo You need the second argument to be the authorized user.
+#    exit
+#fi
+
+#if [ -z $3 ]; then 
+#    echo You need the third argument to be the repository name.
+#    exit
+#fi
+
+
+createrepo_util $1 $2
