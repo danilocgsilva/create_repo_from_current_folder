@@ -3,7 +3,7 @@
 header("Content-type: text/plain; charset=utf-8");
 
 
-include("createrepo.confs.php");
+include("createrepofromcurrentfolder.confs.php");
 
 
 if (!preg_match('/^[a-zA-Z0-9]+$/', $_GET["registereduser"])) {
