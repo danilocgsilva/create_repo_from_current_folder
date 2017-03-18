@@ -5,15 +5,15 @@ createrepofromcurrentfolder_util(){
 	declare -a createrepofromcurrentfolder_util_errors
 	
 	if [ -z $1 ]; then
-		createrepofromcurrentfolder_util_errors+=('You need the first argument to be the path to the php. It is empty.');
+		createrepofromcurrentfolder_util_errors+=('You need the first argument to be the path to the php.');
 	fi
 
 	if [ -z $2 ]; then
-		createrepofromcurrentfolder_util_errors+=('You need the second argument to be the registered user. It is empty.')
+		createrepofromcurrentfolder_util_errors+=('You need the second argument to be the registered user.')
 	fi
 	
+	# If there's errors, skip, exiting the program
 	if [ ${#createrepofromcurrentfolder_util_errors[@]} -gt 0 ]; then
-		# If there's errors, skip, exiting the program
 		for i in `seq ${#createrepofromcurrentfolder_util_errors[@]}`; do
 			realloop=`expr $i - 1`
 			echo createrepofromcurrentfolder_util error: ${createrepofromcurrentfolder_util_errors[$realloop]}
