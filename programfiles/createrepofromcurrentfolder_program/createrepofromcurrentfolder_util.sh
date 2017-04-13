@@ -22,7 +22,7 @@ createrepofromcurrentfolder_util(){
 	fi
 
 	# Get current folder name to be the project name
-	projectname=$(basename $(pwd))
+	projectname=$(basename "$(pwd)")
 
 	IFS=$'\n'
 	content_response=($(curl "$1/createrepofromcurrentfolder.php?registereduser=$2&projname=$projectname"))

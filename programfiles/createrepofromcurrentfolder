@@ -1,5 +1,7 @@
 #!/bin/bash
 
+createrepofromcurrentfolder_versio=1
+
 basedir=$(dirname $0)
 
 source $basedir/createrepofromcurrentfolder_program/createrepofromcurrentfolder_util.sh
