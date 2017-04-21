@@ -1,6 +1,6 @@
 #!/bin/bash
 
-createrepofromcurrentfolder_versio=1
+createrepofromcurrentfolder_version=1
 
 basedir=$(dirname $0)
 

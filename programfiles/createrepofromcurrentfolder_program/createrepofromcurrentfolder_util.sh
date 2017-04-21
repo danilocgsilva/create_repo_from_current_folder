@@ -1,6 +1,6 @@
 #!/bin/bash
 
-createrepofromcurrentfolder_util(){
+createrepofromcurrentfolder_util() {
 	
 	declare -a createrepofromcurrentfolder_util_errors
 	
@@ -10,6 +10,13 @@ createrepofromcurrentfolder_util(){
 
 	if [ -z $2 ]; then
 		createrepofromcurrentfolder_util_errors+=('You need the second argument to be the registered user.')
+	fi
+
+	# Get current folder name to be the project name
+	projectname=$(basename "$(pwd)")
+
+	if [[ "$projectname" =~ " " ]]; then
+		createrepofromcurrentfolder_util_errors+=('There are blank spaces in the current directory name. It is not allowed.')
 	fi
 	
 	# If there's errors, skip, exiting the program
@@ -21,18 +28,15 @@ createrepofromcurrentfolder_util(){
 		return
 	fi
 
-	# Get current folder name to be the project name
-	projectname=$(basename "$(pwd)")
-
 	IFS=$'\n'
 	content_response=($(curl "$1/createrepofromcurrentfolder.php?registereduser=$2&projname=$projectname"))
 
 	github_user=${content_response[3]}
 
-	createrepofromcurrentfolder_util_gitinit $projectname
+	createrepofromcurrentfolder_util_gitinit "$projectname"
 }
 
-createrepofromcurrentfolder_util_gitinit(){
+createrepofromcurrentfolder_util_gitinit() {
 	echo "# $1" >> README.md
 	git init
 	git add -A
